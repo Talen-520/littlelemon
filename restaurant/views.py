@@ -23,7 +23,13 @@ def book(request):
 
 from .models import Menu
 def menu(request):
-    menu_data = Menu.objects.all()
-    main_data = {"menu":menu_data}
+    menu_data = Menu.objects.all().order_by('name')  # Sort the menu items by name
+    main_data = {"menu": menu_data}
+    return render(request, "menu.html", main_data)
 
-    return render(request,"menu.html",main_data)
+def display_menu_item(request, pk=None): 
+    if pk: 
+        menu_item = Menu.objects.get(pk=pk) 
+    else: 
+        menu_item = "" 
+    return render(request, 'menu_item.html', {"menu_item": menu_item}) 
