@@ -142,6 +142,12 @@ cd sites-available/ or cd /etc/nginx/sites-available
 sudo touch django.conf
 sudo nano django.conf
 ```
+### Collect static files from multiple apps into a single path
+. By copying them from inside the individual apps into a single folder, you can point your frontend web server (e.g. nginx) to that single folder STATIC_ROOT and serve static files from a single location, rather than configure your web server to serve static files from multiple paths.
+```
+python3 manage.py collectstatic
+```
+
 ### modify server name and app path
 ```
 server{
@@ -157,6 +163,11 @@ server{
 		proxy_pass http://unix:/home/ubuntu/littlelemon/app.sock;
 
 	}
+	#static file location
+	location /static/ {
+    		alias /home/ubuntu/littlelemon/static/;
+	}
+
 
 }
 ```
