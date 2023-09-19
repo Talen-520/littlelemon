@@ -67,5 +67,67 @@ used for django app to communicate web server and hence bridge connection
 ```
 pip3 install gunicorn
 ```
+check package installed
+```
+pip list
+```
+### install supervisor to run app in backend
+```
+sudo apt-get install supervisor
+```
+### head to gunicorn configuration file
+```
+cd /etc/supervisor/conf.d/
+sudo touch gunicorn.conf
+sudo nano gunicorn.conf
+```
+### edit configuration file
+```
+[program:gunicorn]
+directory=/home/ubuntu/littlelemon
+command=/home/ubuntu/env/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/littlelemon/app.sock littleLemon.wsgi:application
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/gunicorn/gunicorn.err.log
+stdout_logfile=/var/log/gunicorn/gunicorn.out.log
 
+[group:guni]
+programs:gunicorn
+```
+ctrl + o save file and ctrl x quit
 
+### create log file for error
+```
+sudo mkdir /var/log/gunicorn
+```
+### add process group
+```
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl status
+```
+> if status shows not running, here is couple bugs happened too me,
+> supervisor: couldn't chdir to /home/ubuntu/littleLemon: ENOENT
+> supervisor: child process was not spawned
+> solution: check directory path name, case sensitive
+>
+>   File "/home/ubuntu/littlelemon/littleLemon/wsgi.py", line 12, in <module>
+>    from django.core.wsgi import get_wsgi_application
+> ModuleNotFoundError: No module named 'django'
+> [2023-09-19 03:39:01 +0000] [22217] [INFO] Worker exiting (pid: 22217)
+>
+> Django does not installed in virtual env
+> it show be displayed as following:
+> guni:gunicorn                    RUNNING   pid 22574, uptime 0:02:05
+
+### go to nginx directory 
+```
+cd ..
+cd ..
+cd nginx
+sudo nano nginx.conf
+```
+at top change user to root
+```
+user root;
+```
