@@ -1,4 +1,6 @@
-# for on going project check my Django repo
+# on going App repo
+
+https://github.com/Talen-520/Django_Project
 
 # littlelemon
 
@@ -21,4 +23,49 @@ MacOS:
 ### install pakcages:
 
 pip install -r requirements.txt
+
+
+### EC2 server deployment setup
+
+security group inbound:
+
+SSH - IPv4
+HTTP - IPv4
+HTTP - IPv6
+
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+### virtual environment
+```
+sudo apt-get install python3-venv
+python3 -m venv env
+```
+### active venv
+```
+source env/bin/activate
+```
+
+### install Django
+```
+pip3 install django
+```
+
+then clone this repo, make sure your project setting contains EC2 IP
+
+### install nginx
+```
+sudo apt-get install -y nginx
+```
+
+### install gunicorn, 
+
+used for django app to communicate web server and hence bridge connection 
+
+```
+pip3 install gunicorn
+```
+
 
