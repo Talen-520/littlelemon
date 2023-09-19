@@ -118,16 +118,53 @@ sudo supervisorctl status
 >
 > Django does not installed in virtual env
 > it show be displayed as following:
+> 
 > guni:gunicorn                    RUNNING   pid 22574, uptime 0:02:05
 
 ### go to nginx directory 
 ```
 cd ..
 cd ..
-cd nginx
+cd nginx or cd /etc/nginx/
 sudo nano nginx.conf
 ```
-at top change user to root
+at top change user to root, inorder avoid permission issue
 ```
 user root;
+```
+### create django configuration file
+```
+cd sites-available/ or cd /etc/nginx/sites-available
+sudo touch django.conf
+sudo nano django.conf
+```
+### modify server name and app path
+```
+server{
+
+	listen 80;
+	server_name 0.0.0.0;
+
+	
+	location / {
+
+		include proxy_params;
+		proxy_pass http://unix:/home/ubuntu/littlelemon/app.sock;
+
+	}
+
+}
+```
+### test configuration
+```
+sudo nginx -t
+```
+sample output
+> nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+> nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+### get your site alive
+```
+sudo ln django.conf /etc/nginx/sites-enabled
+sudo service nginx restart
 ```
