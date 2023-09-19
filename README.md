@@ -25,7 +25,7 @@ MacOS:
 pip install -r requirements.txt
 
 
-### EC2 server deployment setup
+# EC2 server deployment setup
 
 security group inbound:
 
