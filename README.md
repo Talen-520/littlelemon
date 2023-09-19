@@ -2,6 +2,10 @@
 
 https://github.com/Talen-520/Django_Project
 
+# On EC2, but I have not set S3 yet, busy~
+
+http://littlelemon.techtaohu.com/
+
 # littlelemon
 
  https://github.com/Talen-520/littlelemon/assets/63370853/299d54d5-77f8-45cd-a05b-6ee2785d7f37
@@ -144,6 +148,7 @@ server{
 
 	listen 80;
 	server_name 0.0.0.0;
+	#or server_name littlelemon.techtaohu.com; #which is your domain
 
 	
 	location / {
