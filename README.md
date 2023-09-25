@@ -86,6 +86,14 @@ sudo touch gunicorn.conf
 sudo nano gunicorn.conf
 ```
 ### edit configuration file
+- replace littlelemon to your root directory
+- replace littleLemon to your projectname
+
+example
+```
+[program:gunicorn]
+directory=/home/ubuntu/rootdirectory
+command=/home/ubuntu/env/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/rootdirectory/app.sock projectname.wsgi:application
 ```
 [program:gunicorn]
 directory=/home/ubuntu/littlelemon
@@ -155,7 +163,7 @@ server{
 	listen 80;
 	server_name 0.0.0.0;
 	#or server_name littlelemon.techtaohu.com; #which is your domain
-
+	
 	
 	location / {
 
@@ -183,4 +191,19 @@ sample output
 ```
 sudo ln django.conf /etc/nginx/sites-enabled
 sudo service nginx restart
+```
+###optional debug:
+restart gunicorn
+find current process
+```
+ ps aux | grep gunicorn
+
+```
+end process
+```
+sudo kill <pid>
+```
+restart process:
+```
+kill -HUP <PID>
 ```
