@@ -95,6 +95,7 @@ example
 directory=/home/ubuntu/rootdirectory
 command=/home/ubuntu/env/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/rootdirectory/app.sock projectname.wsgi:application
 ```
+```
 [program:gunicorn]
 directory=/home/ubuntu/littlelemon
 command=/home/ubuntu/env/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/littlelemon/app.sock littleLemon.wsgi:application
