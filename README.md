@@ -187,8 +187,9 @@ sample output
 > nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
 > nginx: configuration file /etc/nginx/nginx.conf test is successful
 
-### get your site alive
+
 ```
+### get your site alive
 sudo ln django.conf /etc/nginx/sites-enabled
 sudo service nginx restart
 ```
