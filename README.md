@@ -192,18 +192,23 @@ sample output
 sudo ln django.conf /etc/nginx/sites-enabled
 sudo service nginx restart
 ```
-###optional debug:
+### optional debug:
 restart gunicorn
 find current process
+
 ```
  ps aux | grep gunicorn
 
 ```
+
 end process
+
 ```
 sudo kill <pid>
 ```
+
 restart process:
+
 ```
 kill -HUP <PID>
 ```
