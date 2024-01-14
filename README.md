@@ -1,13 +1,10 @@
-# on going App repo
-
+### on going App repo
 https://github.com/Talen-520/Django_Project
 
-# On EC2, but I have not set S3 yet, busy~
-
+### WEBSITE
 http://littlelemon.techtaohu.com/
 
 # littlelemon
-
  https://github.com/Talen-520/littlelemon/assets/63370853/299d54d5-77f8-45cd-a05b-6ee2785d7f37
 
 ### make sure run app on virtual environment then activate it by 
