@@ -1,8 +1,7 @@
-### on going App repo
-https://github.com/Talen-520/Django_Project
+### [on going App repo](https://github.com/Talen-520/Django_Project
+)
 
-### WEBSITE
-http://littlelemon.techtaohu.com/
+### [WEBSITE](http://fullstack.techtaohu.com/)
 
 # littlelemon
  https://github.com/Talen-520/littlelemon/assets/63370853/299d54d5-77f8-45cd-a05b-6ee2785d7f37
